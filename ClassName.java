@@ -1,4 +1,7 @@
-
+/**
+ * Multiline 
+ * comment
+ */
 public class ClassName extends ParentClass implements InterfaceClass1, InterfaceClass2 {
     private int field1;
     private final float field2;  // final means const in Java
@@ -17,5 +20,24 @@ public class ClassName extends ParentClass implements InterfaceClass1, Interface
     
     public void setField1 (int f1) {
         this.field1 = f1;
+    }
+    
+    // must have methods
+    public String toString () {
+        return "This is string representation of this object.\n" + "First field = " + this.field1;
+    }
+    
+    public int hashCode () {
+        return toString().hashCode(); //returns hash code to be used in hash tables
+    }
+    
+    public boolean equals (Object o) { // parameter type has to be Object
+        if (o != null && o.getClass().equals(getClass())) {
+            ClassName other = (ClassName) o;
+            return other.f0 == f0 && 
+                other.f1 == f1 && 
+                other.f2 == f2 &&
+                other.f3 == f3;
+        }
     }
 }
