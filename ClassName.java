@@ -14,6 +14,11 @@ public class ClassName extends ParentClass implements InterfaceClass1, Interface
         this.field3 = f3;
     }
     
+    public ClassName (int f1, float f2, char f3) {
+        this("default", f1, f2, f3);  // first line of construtor could be call to parent's constructor or to any other constructor in the same class (aka constructor chaining)
+    }
+    
+    @Override // keyword used when overriding a method from an ancestor class
     public int getField1 () {
         return this.field1;
     }
